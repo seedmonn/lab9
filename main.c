@@ -24,15 +24,9 @@ int main(void)
 		if (ptr == NULL)
 			break;
 
-		while (*ptr != '\0')
+		while ()
 		{
-			if (*ptr == ' ' || *ptr == '.' || *ptr == ',')
-			{
-				*ptr++ = '\n';
-				*ptr = '\0';
-				break;
-			}
-			ptr++;
+			
 		}
 		fputs(line, fpout);
 	}
