@@ -7,6 +7,7 @@ int main(int argc, char* argv[])
 	int slovo, N;
 	slovo = 1;
 	char ch;
+	char ch_gag;
 	if ((f = fopen("C:\\Users\\Admin\\source\\repos\\laba9\\text.txt", "r")) == NULL) // Путь к файлу с текстом
 	{
 		printf("Cannot open input file.\n");
@@ -26,10 +27,11 @@ int main(int argc, char* argv[])
 		{
 			fprintf(fpout, "%c", ch); //Считает точки и переход на следущую строку.
 		}
-		if (ch == ' ' || ch == '\t' || ch == '\n') //Табуляцию тоже считаем.
+		if ((ch == ' ' || ch == '\t' || ch == '\n') && (ch_gag != ' ' || ch_gag != '\t' || ch_gag != '\n')) //Табуляцию тоже считаем.
 			slovo++; 
 		if (ch == '\n')
 			slovo = 1;
+		ch_gag = ch;
 	}
 	fclose(fpout);
 	fclose(f);
