@@ -1,1 +1,4 @@
-zalupa xyu pizda sosi
+slovo1 slovo2 slovo3
+slovo1  slovo2  slovo3  slovo4
+   
+slovo1	slovo2	slovo3
