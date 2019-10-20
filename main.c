@@ -10,7 +10,6 @@ int main(int argc, char* argv[]) //количество аргументов(1ый всегда адрес экзешн
 	char ch; // Текущий символ
 	char ch_gag; //предыдущий символ
 	char filename[100] = { 0 }; //имя файла
-
 	//Проверяем на наличие аргументов по умолчанию
 	if (argc == 2)
 		strcpy(filename, argv[1]);
@@ -22,32 +21,30 @@ int main(int argc, char* argv[]) //количество аргументов(1ый всегда адрес экзешн
 	if ((f = fopen(filename, "r")) == NULL) //Открытие файла для чтения
 	{
 		printf("Cannot open input file.\n");
-		goto tr; // Повторяем, пока пользователь не умрет или не захочет выпить
+		goto tr; // Повторяем, пока пользователь не введет корректный путь
 	}
-
-	// Слоган МакДональдса
-	printf("This program deleted one word in the text file.\n");
+	printf("This program deletes one word in the text file.\n");
 	printf("Please enter a line to delete: ");
 	scanf_s("%d", &N);
 	FILE* fpout;
-	fpout = fopen("C:\\Users\\Admin\\source\\repos\\laba9\\result.txt", "w"); // Умное чтиво
+	fpout = fopen("C:\\Users\\Admin\\source\\repos\\laba9\\result.txt", "w"); // Открытие файла для записи результата 
 	fprintf(fpout, "Result text file: \n");
 	while (!feof(f))
 	{
 		ch = fgetc(f);
-		if (ch == -1)
+		if (ch == -1) //Создаем переменную, равную значению предыдущего символа, для определения "слова" среди допустимых разделителей
 			break;
 		if ((N != slovo) || (ch == ' ' || ch == '\t' || ch == '\n'))
 		{
-			fprintf(fpout, "%c", ch); // Работу программистам. Выводим, что хотим
+			fprintf(fpout, "%c", ch);
 		}
 		if ((ch == ' ' || ch == '\t' || ch == '\n') && ch_gag != ' ' && ch_gag != '\t' && ch_gag != '\n') // Делаем, так, чтобы слова считались с учетом нескольких пробелов
-			slovo++;
+			slovo++; // определение слова
 		if (ch == '\n')
-			slovo = 1; // позовите следующего
-		ch_gag = ch; //ничего общего с кляпом
+			slovo = 1; 
+		ch_gag = ch;
 	}
-	fclose(fpout); // закрываем после проветривания
-	fclose(f);
+	fclose(fpout); // закрываем файлы
+	fclose(f); //
 	return 0;
 }
