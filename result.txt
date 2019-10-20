@@ -1,5 +1,4 @@
 Result text file: 
-slovo1 slovo2 
-slovo1  slovo2    slovo4
-   
-slovo1	slovo2	
+ slovo2 slovo3
+  slovo2  slovo3  slovo4
+	slovo2	slovo3
